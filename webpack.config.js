@@ -1,5 +1,6 @@
 let path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/app.js',
@@ -33,6 +34,10 @@ module.exports = {
     fs: 'empty'
   },
   plugins: [
-    new ExtractTextPlugin('styles.css')
+    new ExtractTextPlugin('styles.css'),
+    new HtmlWebpackPlugin({
+      title: 'WebsiteTitle',
+      template: '!!pug-loader!src/index.pug'
+    })
   ]
 }
