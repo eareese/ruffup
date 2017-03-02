@@ -4,8 +4,24 @@
   "description": "web start",
   "main": "index.js",
   "scripts": {
+    "build": "npm run build-static && webpack -p",
+    "build-static": "cp src/index.html public/",
+    "clean-all": "rm -rf public && mkdir public",
+    "dev": "webpack-dev-server",
+    "start": "npm run build && http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Emily Reese <emilyreese@fastmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "css-loader": "^0.26.2",
+    "extract-text-webpack-plugin": "^2.0.0",
+    "imports-loader": "^0.7.1",
+    "style-loader": "^0.13.2",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  }
 }
